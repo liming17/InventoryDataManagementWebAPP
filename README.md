@@ -34,8 +34,10 @@ The front end is implemented with Springboot, JPA, Hibernate, Spring Security, L
 # Database Part
 
 DBMS MySQL
+[Sql file to build the database and insert testing data](docs/Store_data.sql)
 
 ERD
+![Image of ERD](ERD_Diagram.jpg)
 
 # Testing
 
