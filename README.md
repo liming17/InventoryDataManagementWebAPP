@@ -37,7 +37,7 @@ DBMS MySQL
 [Sql file to build the database and insert testing data](docs/Store_data.sql)
 
 ERD
-![Image of ERD](ERD_Diagram.jpg)
+![Image of ERD](ERD.jpg)
 
 # Testing
 
