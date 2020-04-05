@@ -37,15 +37,16 @@ The front end is implemented with Springboot, JPA, Hibernate, Spring Security, L
 # Database Part
 
 ### DBMS MySQL
-[Sql file to build the database and insert testing data](docs/Store_data.sql)
+[Sql file to build the database and insert testing data](Store_data.sql)
 
 ### ERD
 ![Image of ERD](ERD.png)
 
 ### Stored Procedure & View
-[Sql file to create the view and stored procedure](docs/Stored_procedure&View.sql)
+[Sql file to create the view and stored procedure](Stored_procedure&View.sql)
 
 #### Stored Procedure
+
 1. Given a month, check the monthly sales record for each salesperson and calculate the bonus for each salesperson
 
 User(s): Store Manager, Salesperson who is in charge of calculating bonus
