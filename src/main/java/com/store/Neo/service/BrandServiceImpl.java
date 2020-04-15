@@ -38,8 +38,10 @@ public class BrandServiceImpl implements IService<Brand> {
 		return "success";
 	}
 	
-
-	
+	public Collection<Brand> findBrandByCatagory(String searchText){
+		return brandRepository.findBrandByCatagory(searchText);
+	}
+		
 	
 
 }
