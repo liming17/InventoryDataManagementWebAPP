@@ -3,7 +3,7 @@ package com.store.Neo.service;
 import java.util.Collection;
 
 public interface IService<T> {
-	Collection<T> findAll();
+//	Collection<T> findAll();
 	
 	T findById(Long id);
 	

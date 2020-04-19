@@ -90,7 +90,7 @@ public class Product implements Serializable{
 	@NotNull
 	private int total_amount;
 	
-    //getter method to retrieve the AuthorId
+    //getter method to retrieve the brandId
     public Long getBrand_id(){
         return brand.getId();
     }

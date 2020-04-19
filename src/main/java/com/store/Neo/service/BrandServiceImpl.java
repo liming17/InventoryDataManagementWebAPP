@@ -13,7 +13,7 @@ public class BrandServiceImpl implements IService<Brand> {
 	@Autowired
 	BrandRepository brandRepository;
 
-	@Override
+
 	public Collection<Brand> findAll() {
 		// TODO Auto-generated method stub		
 		return brandRepository.findAll();

@@ -3,6 +3,8 @@ package com.store.Neo.service;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.store.Neo.entity.Product;
@@ -15,9 +17,9 @@ public class ProductServiceImpl implements IService<Product> {
 	@Autowired
 	private ProductRepository productRepository;
 
-	@Override
-	public Collection<Product> findAll() {
-		return productRepository.findAll();
+
+	public Page<Product> findAll(Pageable pageable) {
+		return productRepository.findAll(pageable);
 	}
 
 	@Override
@@ -27,7 +29,7 @@ public class ProductServiceImpl implements IService<Product> {
 
 	@Override
 	public Product saveOrUpdate(Product t) {
-		return productRepository.saveAndFlush(t);
+		return productRepository.save(t);
 	}
 
 	@Override

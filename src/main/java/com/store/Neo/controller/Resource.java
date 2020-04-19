@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 public interface Resource<T> {
-	@GetMapping
-	ResponseEntity<Collection<T>> findAll();
+//	@GetMapping
+//	ResponseEntity<Collection<T>> findAll();
 	
 	@GetMapping("{id}")
 	ResponseEntity<T> findById(@PathVariable Long id);
