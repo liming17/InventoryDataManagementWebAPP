@@ -16,7 +16,7 @@ import com.store.Neo.entity.Brand;
 import com.store.Neo.service.BrandServiceImpl;
 
 @RestController
-@RequestMapping("/brands")
+@RequestMapping("/rest/brands")
 @CrossOrigin(origins="http://localhost:3000")
 public class BrandController implements Resource<Brand> {
 	

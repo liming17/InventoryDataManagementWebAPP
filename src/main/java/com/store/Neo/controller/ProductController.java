@@ -28,7 +28,7 @@ import com.store.Neo.service.IService;
 import com.store.Neo.service.ProductServiceImpl;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/rest/products")
 @CrossOrigin(origins="http://localhost:3000")
 public class ProductController implements Resource<Product> {
 	

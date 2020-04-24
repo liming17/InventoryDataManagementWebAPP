@@ -1,20 +1,33 @@
-# Under construction
+# Introduction
 
-This project is designed for small bussiness client. 
+This project is to help my uncle manage the inventory data of his leather boutique store, and help me practice what I have learned at school/during my Co-op. 
 
 The features include product save/update/delete/search.
 
-Primary data analysis include monthly/seasonal sales data viewing.
+Primary data analysis features include monthly/seasonal sales data viewing.
 
-# Front-end Part
+Store employees have to sign in to edit the data.
+
+Greatly appreciate my uncle to provide the chance to work on this real-based project
+
+# Front-end Part (Working)
 
 The front end is implemented with React, React Bootstrap, Sematic UI React
 
-### Components
+#### Dashboard
+![Image of dashboard](screenshots/dash_board.png)
 
-#### App.js
+#### Sidebar
+![Image of sidebar](screenshots/side_bar.png)
 
-Contains nav-bar side-bar and router to other component
+#### Sidebar
+![Image of sidebar](screenshots/side_bar.png)
+
+#### Add/Edit Feature
+![Image of add](screenshots/add.png)
+
+#### View/Delete Feature
+![Image of view/delete](screenshots/view.png)
 
 #### nav-bar.js
 
@@ -27,20 +40,20 @@ By clicking the nav brand, viewSideBar() will be called, and this will change si
 Side bar visibility can be changed by calling viewSideBar() in App.js. Side bar items are imported through ./component/_sidebar.js file
 
 
-#### side-bar.js
 
-# Back-end Part
+
+# Back-end Part (Working)
 
 The front end is implemented with Springboot, JPA, Hibernate, Spring Security, Lombok
 
 
-# Database Part
+# Database Part(Completed)
 
 ### DBMS MySQL
 [Sql file to build the database and insert testing data](Store_data.sql)
 
 ### ERD
-![Image of ERD](ERD.png)
+![Image of ERD](screenshots/ERD.png)
 
 ### Stored Procedure & View
 [Sql file to create the view and stored procedure](Stored_procedure&View.sql)
