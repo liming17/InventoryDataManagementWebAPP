@@ -20,8 +20,6 @@ The front end is implemented with React, React Bootstrap, Sematic UI React
 #### Sidebar
 ![Image of sidebar](screenshots/side_bar.png)
 
-#### Sidebar
-![Image of sidebar](screenshots/side_bar.png)
 
 #### Add/Edit Feature
 ![Image of add](screenshots/add.png)
