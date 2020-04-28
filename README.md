@@ -17,6 +17,9 @@ The front end is implemented with React, React Bootstrap, Sematic UI React
 #### Dashboard
 ![Image of dashboard](screenshots/dash_board.png)
 
+#### Sign In/Up
+![Image of dashboard](screenshots/signin_up.png)
+
 #### Sidebar
 ![Image of sidebar](screenshots/side_bar.png)
 
@@ -24,7 +27,7 @@ The front end is implemented with React, React Bootstrap, Sematic UI React
 #### Add/Edit Feature
 ![Image of add](screenshots/add.png)
 
-#### View/Delete Feature
+#### View/Search/Delete Feature
 ![Image of view/delete](screenshots/view.png)
 
 #### nav-bar.js

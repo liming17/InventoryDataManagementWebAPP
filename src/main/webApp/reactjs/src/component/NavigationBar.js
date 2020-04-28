@@ -1,7 +1,12 @@
 import React from 'react';
 import {Navbar,Nav,NavDropdown,Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-export default class NavigationBar extends React.Component{
+import { Icon } from 'semantic-ui-react';
+import {
+	withRouter
+  } from 'react-router-dom';
+
+class NavigationBar extends React.Component{
 	constructor(props) {
 		super(props);
 		this.state = {};
@@ -17,7 +22,26 @@ export default class NavigationBar extends React.Component{
 
 						</NavDropdown>)
 	}
+
+	logOut =()=>{
+		this.props.logOut();
+		this.props.history.push('/');
+	}
 	render(){
+		let LinkItems;
+		if(this.props.auth){
+			LinkItems = [
+				<Button variant="info" onClick={this.logOut} style={{ marginLeft:"20rem" }}>
+					<Icon name='sign-out' />
+					Log Out</Button>
+		  ];
+		}else{
+			LinkItems = [
+				<Link to="/login" style={{ color: '#FFFFFF', marginLeft:"20rem" }}>
+                 <Icon name="sign-in" />Sign In
+				</Link>
+			];
+		}
 		return (
 				<Navbar bg="dark" variant="dark">
 				<Navbar.Brand onClick={this.props.viewAction}>NeoLife Boutique</Navbar.Brand>
@@ -26,9 +50,14 @@ export default class NavigationBar extends React.Component{
 					{
 						this.props.navItems.map(this.getNavItem.bind(this))
 					}
-				
+
+					<Nav>
+						{LinkItems}
+					</Nav>
 				</Navbar.Collapse>
 				</Navbar>
          );
 	}
 }
+
+export default withRouter(NavigationBar);

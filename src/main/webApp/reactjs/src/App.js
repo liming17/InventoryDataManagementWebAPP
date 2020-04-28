@@ -14,13 +14,14 @@ import ImportSales from './component/ImportSales.js';
 import AddNewProduct from './component/AddNewProduct.js';
 import ViewBrand from './component/ViewBrand.js';
 import AddNewBrand from './component/AddNewBrand.js';
+import Login from './component/Login.js';
 
 
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route,withRouter} from 'react-router-dom';
 import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
 import { render } from '@testing-library/react';
 
-export default class App extends Component{
+export default class App extends Component {
     constructor(props) {
         super(props)
 
@@ -29,8 +30,12 @@ export default class App extends Component{
 
         // Set some state
         this.state = {
-            visible: false
-        };
+			visible: false,
+			auth: false
+		};
+		
+		this.changeAuthState = this.changeAuthState.bind(this);
+        this.logOut = this.logOut.bind(this);
     }
 
 
@@ -39,11 +44,32 @@ export default class App extends Component{
 	  //window.alert(this.state.visible);
   }
 
+  changeAuthState(){
+	//let setState = !this.state.auth;
+    this.setState({
+		auth: true
+	});
+	//this.props.history.push('/');
+  };
+
+  logOut(){
+	localStorage.removeItem("ACCESS_TOKEN");
+	
+	this.setState({
+		auth:false
+	});
+
+  }
+
 render(){
 	return(
 		<div className="App">
 			<Router>
-			<NavigationBar viewAction={this.viewSideBar} navItems={navList.items} />
+			<NavigationBar 
+			viewAction={this.viewSideBar} 
+			navItems={navList.items} 
+			auth={this.state.auth}
+			logOut={this.logOut}/>
 			<Sidebar.Pushable>
 			  <VerticalSidebar items={sideItems.items} visible={this.state.visible}/>
 			  <Sidebar.Pusher dimmed={this.state.visible}>
@@ -60,6 +86,8 @@ render(){
 				<Route path="/viewBrand" exact component={ViewBrand}/>
 				<Route path="/addBrand" exact component={AddNewBrand}/>
 				<Route path="/editBrand/:id" exact component={AddNewBrand}/>
+				<Route path="/login" render={(props) => <Login {...props} changeAuth={this.changeAuthState}/>} />
+
 			   </Switch>
 	
 			  </Sidebar.Pusher >
@@ -71,4 +99,5 @@ render(){
 };
  
 }
+
 
