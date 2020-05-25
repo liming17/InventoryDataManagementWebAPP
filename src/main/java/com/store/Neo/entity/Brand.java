@@ -53,18 +53,18 @@ public class Brand  implements Serializable{
 	@Column(name="BRAND_DESCRIPTION")
 	private String brandDescription;
 	
-	  @OneToMany(mappedBy = "brand", fetch = FetchType.LAZY)
-	    private Set<Product> product = new HashSet<Product>();
-	  
-	  @JsonIgnore
-	    public Set<Product> getProduct() {
-	        return this.product;
-	    }
-
-	    @JsonIgnore
-	    public void setProduct(Set<Product> product) {
-
-	    }
+//	  @OneToMany(mappedBy = "brand", fetch = FetchType.LAZY)
+//	    private Set<Product> product = new HashSet<Product>();
+//	  
+//	  @JsonIgnore
+//	    public Set<Product> getProduct() {
+//	        return this.product;
+//	    }
+//
+//	    @JsonIgnore
+//	    public void setProduct(Set<Product> product) {
+//
+//	    }
 	
 	
 

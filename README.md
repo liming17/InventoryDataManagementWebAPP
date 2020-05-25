@@ -28,7 +28,9 @@ The front end is implemented with React, React Bootstrap, Sematic UI React
 ![Image of add](screenshots/add.png)
 
 #### View/Search/Delete Feature
-![Image of view/delete](screenshots/view.png)
+![Image of view/delete brand](screenshots/view.png)
+
+![Image of view/delete product](screenshots/view_product.png)
 
 #### nav-bar.js
 

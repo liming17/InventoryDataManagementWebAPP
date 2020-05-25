@@ -69,7 +69,7 @@ public class Product implements Serializable{
 	private double sale_price;
 	
 
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="BRAND_ID")
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Brand brand;
@@ -93,6 +93,10 @@ public class Product implements Serializable{
     //getter method to retrieve the brandId
     public Long getBrand_id(){
         return brand.getId();
+    }
+    
+    public String getBrand_name(){
+        return brand.getBrandName();
     }
 	
     @JsonIgnore

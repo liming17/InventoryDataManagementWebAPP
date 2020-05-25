@@ -120,7 +120,7 @@ export default class ViewProduct extends Component{
 					        		  <td>{product.barcode}</td>
 					        		  <td>{product.prime_cost}</td>
 					        		  <td>{product.sale_price}</td>
-					        		  <td>{product.brand_id}</td>
+					        		  <td>{product.brand_name}</td>
                                       <td>{product.size}</td>
                                       <td>{product.category}</td>
                                       <td>{product.style}</td>
