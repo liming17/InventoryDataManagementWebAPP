@@ -32,9 +32,14 @@ export default {
         icon:'plus square',
       },
       {
-        label: 'Import Sales Record',
-        linkto: 'importSales',
-        icon:'save',
+        label: 'View Employee',
+        linkto: 'viewEmployee',
+        icon:'clipboard',
+      },
+      {
+        label: 'Add Employee',
+        linkto: 'addEmployee',
+        icon:'plus square',
       },
       
     ],

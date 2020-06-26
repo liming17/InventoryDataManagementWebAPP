@@ -27,6 +27,14 @@ export default {
         name: 'View Brand',
         url: 'viewBrand',
       },
+      {
+        name: 'View Employee',
+        url: 'viewEmployee',
+      },
+      {
+        name: 'Add Employee',
+        url: 'addEmployee',
+      },
       
       {
         name: 'View Report',

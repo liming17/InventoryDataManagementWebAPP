@@ -10,6 +10,7 @@ import navList from './component/_nav.js';
 import ViewProduct from './component/ViewProduct.js';
 import OrderProduct from './component/OrderProduct.js';
 import ViewEmployee from './component/ViewEmployee.js';
+import AddNewEmployee from './component/AddNewEmployee.js';
 import ImportSales from './component/ImportSales.js';
 import AddNewProduct from './component/AddNewProduct.js';
 import ViewBrand from './component/ViewBrand.js';
@@ -79,13 +80,19 @@ render(){
 				   <Route path="/addProduct" exact component={AddNewProduct}/>
 				   <Route path="/orderProduct" exact component={OrderProduct}/>
 				   <Route path="/viewProduct" exact component={ViewProduct}/>
+				   <Route path="/edit/:id" exact component={AddNewProduct}/>
+
 				<Route path="/viewEmployee" exact component={ViewEmployee}/>
+				<Route path="/addEmployee" exact component={AddNewEmployee}/>
+				<Route path="/editEmployee/:id" exact component={AddNewEmployee}/>
+
 				<Route path="/importSales" exact component={ImportSales}/>
-				<Route path="/edit/:id" exact component={AddNewProduct}/>
+
 
 				<Route path="/viewBrand" exact component={ViewBrand}/>
 				<Route path="/addBrand" exact component={AddNewBrand}/>
 				<Route path="/editBrand/:id" exact component={AddNewBrand}/>
+
 				<Route path="/login" render={(props) => <Login {...props} changeAuth={this.changeAuthState}/>} />
 
 			   </Switch>

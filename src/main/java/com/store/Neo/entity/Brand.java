@@ -28,10 +28,11 @@ import lombok.Setter;
 @Data
 public class Brand  implements Serializable{
 	public Brand() {};
-	public Brand(Long id,String brandCategory,String brandName,String brandDescription) {
+	public Brand(Long id,String brandCategory,String brandName, String brandCompany, String brandDescription) {
 		this.id=id;
 		this.brandCategory=brandCategory;
 		this.brandName=brandName;
+		this.brandCompany = brandCompany;
 		this.brandDescription=brandDescription;
 	};
 	
