@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, Table, ButtonGroup, Button,InputGroup, FormControl} from 'react-bootstrap';
+import {Card, Table, Button,InputGroup, FormControl} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import { CardFooter } from 'reactstrap';
 import axios from 'axios';
@@ -20,7 +20,7 @@ export default class ViewProduct extends Component{
 	
 	findAllProducts(page){
 		page-=1;
-		axios.get("http://localhost:8082/rest/products"+"?page="+page+"&size="+this.state.size)
+		axios.get("http://localhost:8082/rest/products?page="+page+"&size="+this.state.size)
 		.then(response => response.data)
 		.then((data)=>{
 			this.setState({

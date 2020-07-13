@@ -1,6 +1,5 @@
 import React , {Component} from 'react';
 import './App.css';
-import {Navbar,Nav,NavDropdown,Button} from 'react-bootstrap';
 import NavigationBar from './component/NavigationBar.js';
 import Welcome from './component/Welcome.js';
 import Foot from './component/Foot.js';
@@ -9,6 +8,8 @@ import sideItems from './component/_sideBar.js';
 import navList from './component/_nav.js';
 import ViewProduct from './component/ViewProduct.js';
 import OrderProduct from './component/OrderProduct.js';
+import CreateOrder from './component/CreateOrder.js';
+import ViewOrder from './component/ViewOrder.js';
 import ViewEmployee from './component/ViewEmployee.js';
 import AddNewEmployee from './component/AddNewEmployee.js';
 import ImportSales from './component/ImportSales.js';
@@ -18,8 +19,10 @@ import AddNewBrand from './component/AddNewBrand.js';
 import Login from './component/Login.js';
 
 
+
+
 import {BrowserRouter as Router, Switch, Route,withRouter} from 'react-router-dom';
-import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
+import {Sidebar } from 'semantic-ui-react'
 import { render } from '@testing-library/react';
 
 export default class App extends Component {
@@ -79,21 +82,23 @@ render(){
 				   <Route path="/" exact component={Welcome}/>
 				   <Route path="/addProduct" exact component={AddNewProduct}/>
 				   <Route path="/orderProduct" exact component={OrderProduct}/>
+				   <Route path="/createOrder" exact component={CreateOrder}/>
+				   <Route path="/viewOrder" exact component={ViewOrder}/>
 				   <Route path="/viewProduct" exact component={ViewProduct}/>
 				   <Route path="/edit/:id" exact component={AddNewProduct}/>
 
-				<Route path="/viewEmployee" exact component={ViewEmployee}/>
-				<Route path="/addEmployee" exact component={AddNewEmployee}/>
-				<Route path="/editEmployee/:id" exact component={AddNewEmployee}/>
+					<Route path="/viewEmployee" exact component={ViewEmployee}/>
+					<Route path="/addEmployee" exact component={AddNewEmployee}/>
+					<Route path="/editEmployee/:id" exact component={AddNewEmployee}/>
 
-				<Route path="/importSales" exact component={ImportSales}/>
+					<Route path="/importSales" exact component={ImportSales}/>
 
 
-				<Route path="/viewBrand" exact component={ViewBrand}/>
-				<Route path="/addBrand" exact component={AddNewBrand}/>
-				<Route path="/editBrand/:id" exact component={AddNewBrand}/>
+					<Route path="/viewBrand" exact component={ViewBrand}/>
+					<Route path="/addBrand" exact component={AddNewBrand}/>
+					<Route path="/editBrand/:id" exact component={AddNewBrand}/>
 
-				<Route path="/login" render={(props) => <Login {...props} changeAuth={this.changeAuthState}/>} />
+					<Route path="/login" render={(props) => <Login {...props} changeAuth={this.changeAuthState}/>} />
 
 			   </Switch>
 	
