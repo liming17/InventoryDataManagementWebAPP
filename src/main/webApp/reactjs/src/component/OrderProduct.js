@@ -7,6 +7,10 @@ import "react-datepicker/dist/react-datepicker.css";
 import {connect} from 'react-redux';
 import {submitOrder} from '../services/order/OrderActions';
 
+import axios from 'axios';
+
+import * as moment from 'moment';
+
 
 class OrderProduct extends Component{
     constructor(props){
@@ -23,6 +27,18 @@ class OrderProduct extends Component{
 
     submitOrder = event =>{
         event.preventDefault();
+        // const order={
+        //     id:this.state.id,
+        //     date:moment(this.state.date).format("YYYY-MM-DD"),
+        //     c_date:moment(this.state.c_date).format("YYYY-MM-DD"),
+        //     order_type:this.state.order_type,
+        //     order_status:this.state.order_status,
+        //     empId:this.state.empId,
+        //     addedProducts:[
+        //         {id:1, amount: 5},
+        //         {id:2, amount: 5}
+        //     ]
+        // };
         const order={
             id:this.state.id,
             date:this.state.date,
@@ -31,6 +47,10 @@ class OrderProduct extends Component{
             order_status:this.state.order_status,
             empId:this.state.empId
         };
+
+
+
+        // axios.post("http://localhost:8082/rest/orderInfo/saveOrderInfo",order)
 
         this.props.submitOrder(order);
 
@@ -56,6 +76,7 @@ class OrderProduct extends Component{
         this.setState({
             date:sDate
         });
+
     }
   
     handleEndDateChange = eDate =>{

@@ -1,6 +1,6 @@
 import  {FETCH_PRODUCT_REQUEST,FETCH_PRODUCT_SUCCESS,FETCH_PRODUCT_FAILURE,
     ADD_PRODUCT_AMOUNT,SUB_PRODUCT_AMOUNT,CHANGE_PRODUCT_AMOUNT,
-    POST_ORDER_INFO_SUCCESS} from './OrderType';
+    POST_ORDER_INFO_SUCCESS,RESET_STATE} from './OrderType';
 
 const initialState = {
     products: [],
@@ -106,6 +106,8 @@ const reducer = (state = initialState, action) => {
                     ...state,
                     order:action.order
                 }
+            case RESET_STATE:
+                return initialState;
 
         default:
             return state;

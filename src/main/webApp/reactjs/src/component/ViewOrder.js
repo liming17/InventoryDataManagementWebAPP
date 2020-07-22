@@ -3,10 +3,12 @@ import {Card,Form,Col,Row,Table, Button,InputGroup, FormControl} from 'react-boo
 import DatePicker from "react-datepicker";
 
 import { CardFooter } from 'reactstrap';
+import axios from 'axios';
 
+import * as moment from 'moment';
 
 import {connect} from 'react-redux';
-import {changeProductAmount,subProductAmount,addProductAmount} from '../services/order/OrderActions';
+import {changeProductAmount,subProductAmount,addProductAmount,resetState} from '../services/order/OrderActions';
 
 
 class ViewOrder extends Component{
@@ -16,7 +18,7 @@ class ViewOrder extends Component{
     }
 
     initialOrderState = {
-       date:new Date(), c_date:new Date(), order_type:'purchase', order_status:'pending', empId:''
+        id:'',date:new Date(), c_date:new Date(), order_type:'purchase', order_status:'pending', empId:'',addedProducts:[]
     };
     
     componentDidMount(){
@@ -29,8 +31,35 @@ class ViewOrder extends Component{
       });
     }
 
-    postOrder = ()=>{
-        // need to post the order info first and then in redux post daste to DB then clear the info in the  reducer
+    postOrder = () =>{
+        // need to post the order info here
+
+
+        const p =this.props.productData.addedProducts.map(({id,amount})=>({id,amount}));
+        this.setState({addedProducts:[...p]},()=>this.post());
+
+
+
+    }
+
+    post = ()=>{
+        const orderInfo = {
+            id:this.state.id,
+            date: moment(this.state.date).format("YYYY-MM-DD"),
+            c_date : moment(this.state.c_date).format("YYYY-MM-DD"),
+            order_type : this.state.order_type,
+            order_status : this.state.order_status,
+            empId: this.state.empId,
+            addedProducts:this.state.addedProducts
+        }
+
+        axios.post("http://localhost:8082/rest/orderInfo/saveOrderInfo",orderInfo)
+          .then(response =>{
+              if(response.data != null){
+                  this.setState(this.initialOrderState);
+                  this.props.resetState();
+              }
+          })
     }
 
     changeProductAmount = (id,event) =>{
@@ -228,8 +257,6 @@ const mapStateToProps = state => {
  const mapDispatchToProps = dispatch => {
     return {
 
-       //TODO POST ORDER
-
         changeAmount : (id,amount) =>{
             dispatch(changeProductAmount(id,amount))
         },
@@ -238,6 +265,9 @@ const mapStateToProps = state => {
         },
         addAmount : (id) =>{
             dispatch(addProductAmount(id))
+        },
+        resetState: () =>{
+            dispatch(resetState());
         }
     }
 }

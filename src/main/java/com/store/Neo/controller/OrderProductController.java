@@ -18,9 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.store.Neo.entity.OrderInfo;
 import com.store.Neo.entity.OrderProduct;
 import com.store.Neo.entity.OrderProductKey;
 import com.store.Neo.entity.Product;
+import com.store.Neo.repository.ProductRepository;
+import com.store.Neo.service.OrderInfoServiceImpl;
 import com.store.Neo.service.OrderProductServiceImpl;
 
 @RestController
@@ -29,6 +32,12 @@ import com.store.Neo.service.OrderProductServiceImpl;
 public class OrderProductController{
 	@Autowired
 	OrderProductServiceImpl orderProductService;
+	
+	@Autowired
+	ProductRepository productRepository;
+	
+	@Autowired
+	private OrderInfoServiceImpl orderInfoService;
 	
 	@GetMapping
 	public ResponseEntity<Page<OrderProduct>> findAll(Pageable pageable) {
@@ -45,7 +54,14 @@ public class OrderProductController{
 			@PathVariable(value = "productId") Long productId,
 			@RequestBody OrderProduct t) {
 		OrderProductKey key = new OrderProductKey(orderId, productId);
+		
+		 Product product = productRepository.findById(productId).get();
+	     t.setProduct(product);
+	     
+	     OrderInfo savedOrderInfo = orderInfoService.findById(orderId);
+	     t.setOrderInfo(savedOrderInfo);
 		t.setId(key);
+		
 		return new ResponseEntity<>(orderProductService.saveOrUpdate(t),HttpStatus.CREATED);
 	}
 	

@@ -29,7 +29,7 @@ public class OrderProduct {
 	@EmbeddedId
 	private OrderProductKey id;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@MapsId("orderId")
 	@JoinColumn(name="ORDER_ID")
 	private OrderInfo orderInfo;
@@ -56,6 +56,11 @@ public class OrderProduct {
 		return this.product;
 	}
 	
+	@JsonIgnore
+	public OrderInfo getOrderInfo() {
+		return this.orderInfo;
+	}
+	
 	
 	public String getProductName() {
 		return this.product.getName();
@@ -64,6 +69,20 @@ public class OrderProduct {
 	public Long getProductId() {
 		return this.product.getId();
 	}
+	// Since we cannot rely on a natural identifier for equality checks, we need to use the entity identifier instead for the equals method. 
+	@Override
+	public boolean equals(Object o) {
+		if(this == o) return true;
+		if(!(o instanceof OrderProduct)) return false;
+		OrderProduct that = (OrderProduct) o;
+		return id!=null && id.equals(that.getId());
+	}
+	
+	@Override
+	public int hashCode() {
+		return 31;
+	}
+	
 	
 	
 
