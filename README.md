@@ -18,7 +18,7 @@ The front end is implemented with React, React Bootstrap, Sematic UI React
 ![Image of dashboard](screenshots/dash_board.png)
 
 #### Sign In/Up
-![Image of dashboard](screenshots/signin_up.png)
+![Image of signIn/Up](screenshots/signin_up.png)
 
 #### Sidebar
 ![Image of sidebar](screenshots/side_bar.png)
@@ -31,6 +31,22 @@ The front end is implemented with React, React Bootstrap, Sematic UI React
 ![Image of view/delete brand](screenshots/view.png)
 
 ![Image of view/delete product](screenshots/view_product.png)
+
+#### Place an order
+
+###### Choose the order type
+
+![Image of select_order_type](screenshots/select_order_type.png)
+
+###### Add products to the order
+
+![Image of add_prod_to_order](screenshots/add_prod_to_order.png)
+
+###### Review and confirm the order
+
+![Image of final_modify_order](screenshots/final_modify_order.png)
+
+
 
 #### nav-bar.js
 
